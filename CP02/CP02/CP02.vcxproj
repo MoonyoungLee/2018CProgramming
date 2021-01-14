@@ -141,10 +141,12 @@
   <ItemGroup>
     <ClCompile Include="AppIO.c" />
     <ClCompile Include="main.c" />
+    <ClCompile Include="QuadEquationProblem.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AppIO.h" />
     <ClInclude Include="Common.h" />
+    <ClInclude Include="QuadEquationProblem.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

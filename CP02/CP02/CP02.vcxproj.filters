@@ -21,12 +21,18 @@
     <ClCompile Include="AppIO.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="QuadEquationProblem.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Common.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="AppIO.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="QuadEquationProblem.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>
