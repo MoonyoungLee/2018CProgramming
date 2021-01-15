@@ -114,7 +114,7 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
     </ClCompile>
     <Link>
@@ -141,9 +141,11 @@
   <ItemGroup>
     <ClInclude Include="AppIO.h" />
     <ClInclude Include="Common.h" />
+    <ClInclude Include="MagicSquare.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AppIO.c" />
+    <ClCompile Include="MagicSquare.c" />
     <ClCompile Include="main.c" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
