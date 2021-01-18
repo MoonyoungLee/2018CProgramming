@@ -7,5 +7,5 @@ typedef struct {
 }MagicSquare;
 
 Boolean MagicSqure_orderIsValid(MagicSquare aMagicSquare);
-void MagicSquare_solve(MagicSquare* aMagicSquare, int aBoard[MAX_ORDER][MAX_ORDER]);
+void MagicSquare_solve(MagicSquare aMagicSquare, int aBoard[MAX_ORDER][MAX_ORDER]);
 

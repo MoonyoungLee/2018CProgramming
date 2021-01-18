@@ -17,8 +17,8 @@ void main() {
 	aMagicSquare._order = AppIO_in_order();
 	while (aMagicSquare._order != END_OF_RUN) {
 		if (MagicSqure_orderIsValid(aMagicSquare)) {
-			MagicSquare_solve(&aMagicSquare, aMagicSquare._board);
-			Main_showBoard(aMagicSquare);
+			MagicSquare_solve(aMagicSquare, aBoard);
+			Main_showBoard(aMagicSquare, aBoard);
 		}
 		aMagicSquare._order = AppIO_in_order();
 	}
@@ -27,7 +27,7 @@ void main() {
 	return 0;
 }
 
-void Main_showBoard(MagicSquare aMagicSquare) {
+void Main_showBoard(MagicSquare aMagicSquare, int aBoard[MAX_ORDER][MAX_ORDER]) {
 	printf(">MagicSquareBoard: order %d\n", aMagicSquare._order);
 	printf("    ");
 	for (int i = 0; i < aMagicSquare._order; i++) {
@@ -37,7 +37,7 @@ void Main_showBoard(MagicSquare aMagicSquare) {
 	for (int i = 0; i < aMagicSquare._order; i++) {
 		printf("[%2d]", i);
 		for (int j = 0; j < aMagicSquare._order; j++) {
-			printf(" %4d", aMagicSquare._board[i][j]);
+			printf(" %4d", aBoard[i][j]);
 		}
 		printf("\n");
 	}
