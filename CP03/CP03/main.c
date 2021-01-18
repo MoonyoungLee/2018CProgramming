@@ -7,7 +7,7 @@
 
 #define END_OF_RUN -1
 
-void Main_showBoard(MagicSquare aMagicSquare);
+void Main_showBoard(MagicSquare aMagicSquare, int aBoard[MAX_ORDER][MAX_ORDER]);
 
 void main() {
 	MagicSquare aMagicSquare;
