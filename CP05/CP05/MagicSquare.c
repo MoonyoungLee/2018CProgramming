@@ -72,9 +72,10 @@ void MagicSquare_solve(MagicSquare* _this) {
 		}
 
 		if (_this->_board[nextLoc._row][nextLoc._col] != EMPTY_CELL) {
-			nextLoc._row = currentLoc._row;
-			nextLoc._col = currentLoc._col + 1;
+			nextLoc._row = currentLoc._row + 1;
+			nextLoc._col = currentLoc._col;
 		}
+		_this->_board[nextLoc._row][nextLoc._col] = cellValue;
 		currentLoc = nextLoc;
 	}
 }

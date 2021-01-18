@@ -1,5 +1,6 @@
 #pragma once
 #include <stdlib.h>
+#include <stdio.h>
 #define NewObject(TYPE) (TYPE*)malloc(sizeof(TYPE))
 #define MAX_ORDER 99
 #define END_OF_RUN -1

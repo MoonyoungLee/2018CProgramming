@@ -1,7 +1,6 @@
 #include "AppController.h"
 #include "MagicSquare.h"
 #include "AppIO.h"
-#include <stdio.h>
 
 struct _AppController {
 	int object;
@@ -37,14 +36,14 @@ void AppController_showMain(AppController* _this, MagicSquare* magicSquare)
 	int order = MagicSquare_order(magicSquare);
 	sprintf(messageBuffer, "Magic Square Board: Order %2d\n", order);
 	AppIO_out(messageBuffer);
-	AppIO_out("    ");
+	printf("    ");
 	for (int i = 0; i < order; i++) {
 		printf(" [%2d]", i);
 	}
-	AppIO_out("\n");
+	AppIO_out("");
 
 	for (int i = 0; i < order; i++) {
-		printf(" [%2d]", i);
+		printf("[%2d]", i);
 		for (int j = 0; j < order; j++) {
 			printf("%5d", MagicSquare_cell(magicSquare, i, j));
 		}
