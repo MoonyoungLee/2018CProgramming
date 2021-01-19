@@ -10,17 +10,17 @@ typedef struct {
 }CellLocation;
 
 
-Boolean MagicSqure_orderIsValid(MagicSquare aMagicSquare){
+Boolean MagicSqure_orderIsValid(int inputOrder){
 	
-	if (aMagicSquare._order < 3) {
+	if (inputOrder < 3) {
 		AppIO_out("[오류]: 차수가 너무 작습니다. 3보다 크거나 같아야 합니다\n");
 		return FALSE;
-	}else if (aMagicSquare._order > MAX_ORDER) {
+	}else if (inputOrder > MAX_ORDER) {
 		char messageBuffer[255];
 		sprintf(messageBuffer, "[오류]: 차수가 너무 큽니다. %d보다 작아야 합니다.\n", MAX_ORDER);
 		AppIO_out(messageBuffer);
 		return FALSE;
-	}else if (aMagicSquare._order % 2 == 0) {
+	}else if (inputOrder % 2 == 0) {
 		AppIO_out("[오류]: 차수가 짝수입니다. 홀수이어야 합니다.\n");
 		return FALSE;
 	}
@@ -29,30 +29,30 @@ Boolean MagicSqure_orderIsValid(MagicSquare aMagicSquare){
 	}
 }
 
-void MagicSquare_solve(MagicSquare aMagicSquare, int aBoard[MAX_ORDER][MAX_ORDER]) {
+void MagicSquare_solve(int inputOrder, int aBoard[MAX_ORDER][MAX_ORDER]) {
 	CellLocation currentLoc;
 	CellLocation nextLoc;
 	int row, col = 0;
 
 	// board initialization
-	for (row = 0; row < aMagicSquare._order; row++) {
-		for (col = 0; col < aMagicSquare._order; col++) {
+	for (row = 0; row < inputOrder; row++) {
+		for (col = 0; col < inputOrder; col++) {
 			aBoard[row][col] = EMPTY_CELL;
 		}
 	}
 
 	int cellValue = 1;
 	currentLoc._row = 0;
-	currentLoc._col = aMagicSquare._order / 2;
+	currentLoc._col = inputOrder / 2;
 	aBoard[currentLoc._row][currentLoc._col] = cellValue;
-	int maxCellValue = aMagicSquare._order * aMagicSquare._order;
+	int maxCellValue = inputOrder * inputOrder;
 	for (cellValue = 2; cellValue <= maxCellValue; cellValue++) {
 		nextLoc._row = currentLoc._row - 1;
 		if (nextLoc._row < 0) {
-			nextLoc._row = aMagicSquare._order - 1;
+			nextLoc._row = inputOrder - 1;
 		}
 		nextLoc._col = currentLoc._col + 1;
-		if (nextLoc._col >= aMagicSquare._order) {
+		if (nextLoc._col >= inputOrder) {
 			nextLoc._col = 0;
 		}
 
