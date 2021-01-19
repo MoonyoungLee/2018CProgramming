@@ -13,7 +13,7 @@ typedef struct {
 }QuadEquation;
 
 typedef struct {
-	QuadEquation equation;
+	QuadEquation _equation;
 }QuadEquationProblem;
 
 Boolean QuadEquationProblem_secondOrderTermCoefficientIsZero(QuadEquationProblem aProblem);

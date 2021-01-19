@@ -6,13 +6,15 @@
 void main() {
 	QuadEquationProblem qeProblem;
 	Boolean solvingIsRequested;
+	QuadEquation equation;
 	Solution solution;
 
 	AppIO_out_msg_startSolvingQuadEquation();
 	solvingIsRequested = AppIO_in_solvingIsRequested();
 	while(solvingIsRequested) {
-		AppIO_in_QuadEquation(&qeProblem.equation._c0, &qeProblem.equation._c1, &qeProblem.equation._c2);
-		AppIO_out_quadEquation(qeProblem.equation._c0, qeProblem.equation._c1, qeProblem.equation._c2);
+		AppIO_in_QuadEquation(&equation._c0, &equation._c1, &equation._c2);
+		AppIO_out_quadEquation(equation._c0, equation._c1, equation._c2);
+		qeProblem._equation = equation;
 		if (QuadEquationProblem_secondOrderTermCoefficientIsZero(qeProblem)) {
 			AppIO_out_msg_secondOrderTermCoefficientIsZero();
 		}
