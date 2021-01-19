@@ -1,10 +1,14 @@
 #include "QuadEquation.h"
 
+
+/*
+* CP02 과제에서는 qeProblem._equation = equation으로 main 함수에서 객체의 속성값을 직접 변경했다면,
+* CP04 과제에서는 QuadeEquationProblem_setEquation(QuadEquationProblem* _this, QuadEquation quadEquation) 함수를 통해
+* main함수에서 직접 객체의 속성 값을 변경하는 일을 하지 않아도 된다.
+*/
 void QuadeEquationProblem_setEquation(QuadEquationProblem* _this, QuadEquation quadEquation)
 {
-	_this->_equation._c2 = quadEquation._c2;
-	_this->_equation._c1 = quadEquation._c1;
-	_this->_equation._c0 = quadEquation._c0;
+	_this->_equation = quadEquation;
 }
 Boolean QuadEquationProblem_secondOrderTermCoefficientIsZero(QuadEquationProblem* _this) {
 	if (FloatValueIsZero(_this->_equation._c2)) {

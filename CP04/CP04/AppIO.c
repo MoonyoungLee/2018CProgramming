@@ -7,7 +7,7 @@ void AppIO_out_msg_startSolvingQuadEquation(void)
 }
 void AppIO_out_msg_endSolvingQuadEquation(void)
 {
-	printf("<<< 이차방정식 풀이를 종료합니다 >>>\n\n");
+	printf("\n<<< 이차방정식 풀이를 종료합니다 >>>\n");
 }
 
 Boolean AppIO_in_solvingIsRequested(void) {
@@ -37,8 +37,8 @@ void AppIO_out_msg_secondOrderTermCoefficientIsZero(void) {
 }
 void AppIO_out_msg_determinantIsNegative(float determinant)
 {
-	printf("[오류] 판별식의 값이 음수여서 해가 존재하지 않습니다.\n\n");
-	printf("> 판별식의 값: %.1f", determinant);
+	printf("[오류] 판별식의 값이 음수여서 해가 존재하지 않습니다.\n");
+	printf("> 판별식의 값: %.1f\n\n", determinant);
 }
 void AppIO_out_quadEquation(float c0, float c1, float c2)
 {
@@ -78,5 +78,5 @@ void AppIO_out_quadEquation(float c0, float c1, float c2)
 }
 void AppIO_out_solution(Solution solution) {
 	printf("> 방정식의 해는 다음과 같습니다\n");
-	printf("x1 = %.2f\nx2 = %.2f\n", solution._root1, solution._root2);
+	printf("x1 = %.2f\nx2 = %.2f\n\n", solution._root1, solution._root2);
 }
