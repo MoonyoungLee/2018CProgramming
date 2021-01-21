@@ -88,7 +88,7 @@ void Ban_sortStudentsByScore(Ban* _this) {
 	}
 }
 
-int Ban_minScore(Ban* _this) {
+int Ban_minScore(Ban* _this) { 
 	return Ban_minScoreRecursively(_this, 0, _this->_size-1);
 }
 
@@ -134,6 +134,16 @@ int Ban_sumOfScoresRecursively(Ban* _this, int left, int right) {
 		return (_this->_elements[left] + Ban_sumOfScoreRecursively(_this, left + 1, right));
 	}
 }
-int Ban_maxScoreRecursively(Ban* _this, int left, int right);
+
+int Ban_maxScoreRecursively(Ban* _this, int left, int right) {
+	int maxScore = _this->_elements[left];
+	while(left < right){
+		if (_this->_elements[left] < Ban_maxScoreRecursively(_this, left + 1, right)) {
+			maxScore = Ban_maxScoreRecursively(_this, left + 1, right);
+		}
+		left++;
+	}
+}
+
 int Ban_minScoreRecursively(Ban* _this, int left, int right);
 int Ban_numberOfStudentsAboveAverage(Ban* _this);
