@@ -7,7 +7,7 @@ void AppIO_out_numberOfStudentsAboveAverage(int aNumber);
 void AppIO_out_maxScore(int aMaxScore);
 void AppIO_out_minScore(int aMinScore);
 void AppIO_out_gradeCountFor(char aGrade, int aCount);
-void AppIO_out_studentInfo(int aScore);
+void AppIO_out_studentInfo(int aScore, int aGrade);
 
 Boolean AppIO_in_doesContinueToInputNextStudent(void);
 int AppIO_in_score(void);

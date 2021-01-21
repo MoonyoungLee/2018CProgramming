@@ -1,5 +1,6 @@
 #pragma once
 #include "Common.h"
+#include "GradeCounter.h"
 
 typedef struct _Ban Ban;
 
@@ -16,3 +17,7 @@ void Ban_sortStudentsByScore(Ban* _this);
 int Ban_minScore(Ban* _this);
 int Ban_maxScore(Ban* _this);
 float Ban_averageScore(Ban* _this);
+Boolean Ban_scoreIsValid(int aScore);
+int Ban_numberOfStudentsAboveAverage(Ban* _this);
+GradeCounter* Ban_countGrades(Ban* _this);
+char Ban_scoreToGrade(int aScore);

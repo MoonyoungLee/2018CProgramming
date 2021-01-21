@@ -8,7 +8,6 @@ int Ban_partition(Ban* _this, int left, int right);
 int Ban_sumOfScoresRecursively(Ban* _this, int left, int right);
 int Ban_maxScoreRecursively(Ban* _this, int left, int right);
 int Ban_minScoreRecursively(Ban* _this, int left, int right);
-int Ban_numberOfStudentsAboveAverage(Ban* _this);
 
 
 struct _Ban {
@@ -97,7 +96,7 @@ int Ban_maxScore(Ban* _this) {
 }
 
 float Ban_averageScore(Ban* _this) {
-	float sumOfScore = (float)Ban_sumOfScoreRecursively(_this, 0, _this->_size - 1);
+	float sumOfScore = (float)Ban_sumOfScoresRecursively(_this, 0, _this->_size - 1);
 	float average = sumOfScore / (float)_this->_size;
 	return average;
 }
@@ -109,6 +108,14 @@ void Ban_quickSortRecursively(Ban* _this, int left, int right) {
 		Ban_quickSortRecursively(_this, mid+1, right);
 	}
 }
+
+Boolean Ban_scoreIsValid(int aScore) {
+	if (aScore >= 0 && aScore <= 100) {
+		return TRUE;
+	}
+	return FALSE;
+}
+
 
 int Ban_partition(Ban* _this, int left, int right) {
 	int pivot = left;
@@ -131,19 +138,83 @@ int Ban_sumOfScoresRecursively(Ban* _this, int left, int right) {
 		return 0;
 	}
 	else {
-		return (_this->_elements[left] + Ban_sumOfScoreRecursively(_this, left + 1, right));
+		return (_this->_elements[left] + Ban_sumOfScoresRecursively(_this, left + 1, right));
 	}
 }
 
 int Ban_maxScoreRecursively(Ban* _this, int left, int right) {
-	int maxScore = _this->_elements[left];
-	while(left < right){
-		if (_this->_elements[left] < Ban_maxScoreRecursively(_this, left + 1, right)) {
-			maxScore = Ban_maxScoreRecursively(_this, left + 1, right);
-		}
-		left++;
-	}
+	//if (left == right) {
+	//	return _this->_elements[left];
+	//}
+
+	//if (left < right) {
+	//	int mid = Ban_partition(_this, left, right);
+	//	int leftMax = Ban_maxScoreRecursively(_this, left, mid - 1);
+	//	int rightMax = Ban_maxScoreRecursively(_this, mid + 1, right);
+
+	//	if (leftMax > rightMax) {
+	//		return leftMax;
+	//	}
+	//	else {
+	//		return rightMax;
+	//	}
+	//}
 }
 
-int Ban_minScoreRecursively(Ban* _this, int left, int right);
-int Ban_numberOfStudentsAboveAverage(Ban* _this);
+int Ban_minScoreRecursively(Ban* _this, int left, int right) {
+	//int minScore = _this->_elements[left];
+	//if (left == right) {
+	//	return _this->_elements[left];
+	//}
+	//else {
+	//	while (left < right) {
+	//		if (_this->_elements[left] < Ban_minScoreRecursively(_this, left + 1, right)) {
+	//			return Ban_minScoreRecursively(_this, left + 1, right);
+	//		}
+	//		left++;
+	//	}
+	//}
+}
+
+int Ban_numberOfStudentsAboveAverage(Ban* _this) {
+	float average = Ban_averageScore(_this);
+	int n = _this->_size;
+	int cnt = 0;
+	for (int i = 0; i < n; i++) {
+		if ((float)_this->_elements[i] >= average) {
+			cnt++;
+		}
+	}
+	return cnt;
+}
+
+GradeCounter* Ban_countGrades(Ban* _this) {
+	char currentGrade;
+	GradeCounter* gradeCounter = GradeCounter_new();
+
+	for (int i = 0; i < _this->_size; i++) {
+		currentGrade = Ban_scoreToGrade(_this->_elements[i]);
+		GradeCounter_count(gradeCounter, currentGrade);
+	}
+	return gradeCounter;
+}
+
+char Ban_scoreToGrade(int aScore) {
+	char aGrade;
+	if (aScore >= '90' && '100' >= aScore) {
+		aGrade = 'A';
+	}
+	else if (aScore < 90 && aScore >= 80) {
+		aGrade = 'B';
+	}
+	else if (aScore < 80 && aScore >= 70) {
+		aGrade = 'C';
+	}
+	else if (aScore < 70 && aScore >= 60) {
+		aGrade = 'D';
+	}
+	else {
+		aGrade = 'F';
+	}
+	return aGrade;
+}

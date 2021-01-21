@@ -2,6 +2,8 @@
 #include <conio.h>
 #include "GradeCounter.h"
 
+char getcharDirectlyFromKeyboard(void);
+
 void AppIO_out(char* aMessage) {
 	printf("%s", aMessage);
 }
@@ -22,28 +24,12 @@ void AppIO_out_minScore(int aMinScore) {
 void AppIO_out_gradeCountFor(char aGrade, int aCount) {
 	printf("%c학점은 %d명입니다\n", aGrade, aCount);
 }
-void AppIO_out_studentInfo(int aScore) {
-	char aGrade;
-	if(aScore >= '90' && '100' >= aScore){
-		aGrade = 'A';
-	}
-	else if (aScore < 90 && aScore >= 80) {
-		aGrade = 'B';
-	}
-	else if (aScore < 80 && aScore >= 70) {
-		aGrade = 'C';
-	}
-	else if (aScore < 70 && aScore >= 60) {
-		aGrade = 'D';
-	}
-	else {
-		aGrade = 'F';
-	}
+void AppIO_out_studentInfo(int aScore, int aGrade) {
 	printf("점수: %d 학점: %c\n", aScore, aGrade);
 }
 
 Boolean AppIO_in_doesContinueToInputNextStudent(void) {
-
+	
 	printf("? 성적을 입력하려면 'Y'를, 입력을 종료하려면 다른 아무키나 치시오: ");
 	char answer = getcharDirectlyFromKeyboard();
 	return (answer == 'Y' || answer == 'y');
@@ -53,7 +39,6 @@ char getcharDirectlyFromKeyboard(void) {
 	char charFromkeyboard;
 	charFromkeyboard = _getch();
 	return charFromkeyboard;
-
 }
 
 int AppIO_in_score(void) {
