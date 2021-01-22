@@ -16,12 +16,12 @@ struct _AppController{
 
 AppController* AppController_new(void) {
 	AppController* _this = NewObject(AppController);
+	_this->_ban = Ban_newWithCapacity(MAX_NUMBER_OF_STUDENTS);
 	return _this;
 }
 
 void AppController_run(AppController* _this) {
 	AppIO_out("<<< 성적처리를 시작합니다 >>>\n");
-
 	Boolean inputAndStoreWasSuccessful;
 	inputAndStoreWasSuccessful = AppController_inputAndStoreStudents(_this);
 	if (inputAndStoreWasSuccessful) {
@@ -42,6 +42,7 @@ void AppController_run(AppController* _this) {
 }
 
 void AppController_delete(AppController* _this) {
+	Ban_delete(_this->_ban);
 	free(_this);
 }
 
@@ -52,7 +53,7 @@ Boolean AppController_inputAndStoreStudents(AppController* _this) {
 	while (storingAStudentWasSuccessful && AppIO_in_doesContinueToInputNextStudent()) {
 		score = AppIO_in_score();
 		if (Ban_scoreIsValid(score)) {
-			storingAStudentWasSuccessful = Ban_add(_this, score);
+			storingAStudentWasSuccessful = Ban_add(_this->_ban, score);
 		}
 		else {
 			AppIO_out("[오류] 0보다 작거나 100보다 커서, 정상적인 점수가 아닙니다.\n");

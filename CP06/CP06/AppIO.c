@@ -9,7 +9,7 @@ void AppIO_out(char* aMessage) {
 }
 
 void AppIO_out_averageScore(float anAverageScore) {
-	printf("평균 점수는 %.1f 입니다.\n", anAverageScore);
+	printf("\n평균 점수는 %.1f 입니다.\n", anAverageScore);
 }
 void AppIO_out_numberOfStudentsAboveAverage(int aNumber) {
 	printf("평균 이상인 학생은 모두 %d명 입니다.\n", aNumber);
@@ -43,7 +43,8 @@ char getcharDirectlyFromKeyboard(void) {
 
 int AppIO_in_score(void) {
 	int score;
-	printf("- 점수를 입력하시오: ");
+	printf("\n- 점수를 입력하시오: ");
 	scanf("%d", &score);
+	printf("\n");
 	return score;
 }

@@ -143,37 +143,35 @@ int Ban_sumOfScoresRecursively(Ban* _this, int left, int right) {
 }
 
 int Ban_maxScoreRecursively(Ban* _this, int left, int right) {
-	//if (left == right) {
-	//	return _this->_elements[left];
-	//}
-
-	//if (left < right) {
-	//	int mid = Ban_partition(_this, left, right);
-	//	int leftMax = Ban_maxScoreRecursively(_this, left, mid - 1);
-	//	int rightMax = Ban_maxScoreRecursively(_this, mid + 1, right);
-
-	//	if (leftMax > rightMax) {
-	//		return leftMax;
-	//	}
-	//	else {
-	//		return rightMax;
-	//	}
-	//}
+	if (left == right) {
+		return _this->_elements[left];
+	}
+	else {
+		int mid = (left + right) / 2;
+		int leftMax = Ban_maxScoreRecursively(_this, left, mid);
+		int rightMax = Ban_maxScoreRecursively(_this, mid + 1, right);
+		if (leftMax >= rightMax) {
+			return leftMax;
+		}
+		else {
+			return rightMax;
+		}
+	}
 }
 
 int Ban_minScoreRecursively(Ban* _this, int left, int right) {
-	//int minScore = _this->_elements[left];
-	//if (left == right) {
-	//	return _this->_elements[left];
-	//}
-	//else {
-	//	while (left < right) {
-	//		if (_this->_elements[left] < Ban_minScoreRecursively(_this, left + 1, right)) {
-	//			return Ban_minScoreRecursively(_this, left + 1, right);
-	//		}
-	//		left++;
-	//	}
-	//}
+	int minScore = _this->_elements[left];
+	if (left == right) {
+		return _this->_elements[left];
+	}
+	else {
+		if (_this->_elements[left] > Ban_minScoreRecursively(_this, left + 1, right)) {
+			return Ban_minScoreRecursively(_this, left + 1, right);
+		}
+		else {
+			return _this->_elements[left];
+		}
+	}
 }
 
 int Ban_numberOfStudentsAboveAverage(Ban* _this) {
@@ -201,7 +199,7 @@ GradeCounter* Ban_countGrades(Ban* _this) {
 
 char Ban_scoreToGrade(int aScore) {
 	char aGrade;
-	if (aScore >= '90' && '100' >= aScore) {
+	if (aScore >= 90 && 100 >= aScore) {
 		aGrade = 'A';
 	}
 	else if (aScore < 90 && aScore >= 80) {

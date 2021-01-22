@@ -10,6 +10,11 @@ struct _GradeCounter{
 
 GradeCounter* GradeCounter_new(void) {
 	GradeCounter* _this = NewObject(GradeCounter);
+	_this->_numberOfA = 0;
+	_this->_numberOfB = 0;
+	_this->_numberOfC = 0;
+	_this->_numberOfD = 0;
+	_this->_numberOfF = 0;
 	return _this;
 }
 void GradeCounter_delete(GradeCounter* _this) {
