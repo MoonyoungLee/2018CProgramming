@@ -143,10 +143,16 @@
     <ClInclude Include="AppIO.h" />
     <ClInclude Include="Ban.h" />
     <ClInclude Include="Common.h" />
+    <ClInclude Include="GradeCounter.h" />
     <ClInclude Include="Student.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="AppController.c" />
+    <ClCompile Include="AppIO.c" />
+    <ClCompile Include="Ban.c" />
+    <ClCompile Include="GradeCounter.c" />
     <ClCompile Include="main.c" />
+    <ClCompile Include="Studnet.c" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

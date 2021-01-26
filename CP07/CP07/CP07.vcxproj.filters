@@ -30,9 +30,27 @@
     <ClInclude Include="Ban.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="GradeCounter.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Studnet.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Ban.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="AppController.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="AppIO.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="GradeCounter.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
